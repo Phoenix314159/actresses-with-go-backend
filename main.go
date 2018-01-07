@@ -16,7 +16,7 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/api/get_actresses_data", Actresses(db))
 	router.HandleFunc("/api/get_pictures", Pictures(db))
-	log.Fatal(http.ListenAndServe(":3066", router))
+	log.Fatal(http.ListenAndServe(":3076", router))
 }
 
 func Actresses(db *sql.DB) http.HandlerFunc {

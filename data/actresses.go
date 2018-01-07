@@ -15,10 +15,7 @@ func GetActresses(db *sql.DB) []Actress {
 	}
 	var a []Actress
 	for rows.Next() {
-		var id int
-		var year string
-		var actress string
-		var movie string
+		var id, year, actress, movie string
 		err = rows.Scan(&id, &year, &actress, &movie)
 		if err != nil {
 			panic(err)
