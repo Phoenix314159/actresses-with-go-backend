@@ -1,0 +1,162 @@
+body {
+  background-image: url("http://ak1.picdn.net/shutterstock/videos/3718091/thumb/1.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0; }
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black; }
+
+.popup_inner {
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  left: 31%;
+  right: 31%;
+  top: 17%;
+  bottom: 20%;
+  margin: auto;
+  background-color: whitesmoke;
+  text-shadow: 1px 1px 1px blue;
+  border-radius: 7pt;
+  animation-name: boxswitch;
+  animation-duration: 5s;
+  animation-iteration-count: infinite; }
+  .popup_inner h2 {
+    margin-top: 5vh;
+    margin-bottom: 3vh; }
+  .popup_inner img {
+    margin-bottom: -80px;
+    border: 2px solid black;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.2); }
+  .popup_inner .actressText {
+    margin-top: 57px;
+    margin-bottom: -28px;
+    padding: 8%;
+    font-size: 1.7em;
+    font-family: "Krona One", sans-serif; }
+    .popup_inner .actressText p {
+      color: red;
+      margin: 10px 0 10px; }
+
+@keyframes boxswitch {
+  0% {
+    box-shadow: inset 0 0 15px 15px red; }
+  20% {
+    box-shadow: inset 0 0 15px 15px green; }
+  40% {
+    box-shadow: inset 0 0 15px 15px purple; }
+  80% {
+    box-shadow: inset 0 0 15px 15px blue; }
+  100% {
+    box-shadow: inset 0 0 15px 15px yellow; } }
+
+.total {
+  font-size: 1.4em;
+  height: 81vh;
+  display: table;
+  margin: 0 auto; }
+  .total .moveTable {
+    display: table-cell;
+    margin-top: 15vh;
+    vertical-align: middle; }
+  .total h2 {
+    text-align: center;
+    margin-bottom: 8vh;
+    margin-top: 6vh;
+    font-family: "Krona One", sans-serif;
+    text-shadow: 1px 1px 1px blue; }
+
+.pageButtonDisplay {
+  display: none; }
+
+.loading {
+  text-align: center;
+  margin-top: 28vh;
+  padding: 3%;
+  background-color: lightgrey;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black; }
+
+.mainHeader {
+  text-align: center;
+  margin-top: 26vh; }
+
+.btn-default {
+  margin-top: 5vh; }
+
+.setPageSize {
+  display: flex;
+  justify-content: center; }
+  .setPageSize .form-control {
+    position: absolute;
+    bottom: 16vh;
+    width: 6.15%;
+    text-align: center; }
+  .setPageSize .btn-success {
+    position: absolute;
+    bottom: 11vh; }
+
+.pagContainer {
+  display: flex;
+  justify-content: center; }
+  .pagContainer .movePag {
+    position: absolute;
+    bottom: 3vh; }
+
+.actressTable {
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 1160px;
+  font-size: .85em;
+  font-family: "Krona One", sans-serif; }
+
+td {
+  text-align: center; }
+
+.head {
+  background-color: lightgrey; }
+  .head td {
+    border-bottom: 2px solid #000000; }
+
+tbody > tr:nth-child(even) {
+  background-color: #C0C0C0; }
+
+tbody > tr:nth-child(odd) {
+  background-color: #ADD8E6; }
+
+tbody > tr:hover {
+  cursor: pointer; }
+
+tbody td {
+  border-right: 1px dashed #000000; }
+
+@media (min-width: 1500px) and (max-width: 1700px) {
+  body {
+    font-size: 1.2em; }
+  .actressTable {
+    width: 1000px; }
+  .popup_inner p {
+    font-size: 1.6em; } }
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+  body {
+    font-size: 1.1em; }
+  .actressTable {
+    width: 900px; }
+  .popup_inner p {
+    font-size: 1.5em; } }
