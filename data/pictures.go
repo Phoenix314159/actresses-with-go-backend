@@ -19,5 +19,4 @@ func GetPictures(db *sql.DB) []string {
 		p = append(p, url)
 	}
 	return p
-
 }

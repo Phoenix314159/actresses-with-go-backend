@@ -14,14 +14,17 @@ import (
 func main() {
 	db := models.InitDB()
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/api/get_actresses_data", Actresses)
+	router.HandleFunc("/api/get_actresses_data", Actresses(db))
 	router.HandleFunc("/api/get_pictures", Pictures(db))
-	log.Fatal(http.ListenAndServe(":3045", router))
+	log.Fatal(http.ListenAndServe(":3066", router))
 }
 
-func Actresses(w http.ResponseWriter, r *http.Request) {
-	actresses := data.GetActresses()
-	json.NewEncoder(w).Encode(actresses)
+func Actresses(db *sql.DB) http.HandlerFunc {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		actresses := data.GetActresses(db)
+		json.NewEncoder(w).Encode(actresses)
+	}
+	return http.HandlerFunc(fn)
 }
 
 func Pictures(db *sql.DB) http.HandlerFunc {

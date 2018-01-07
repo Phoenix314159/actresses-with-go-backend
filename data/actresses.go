@@ -1,38 +1,29 @@
 package data
 
-import (
-	"os"
-	"fmt"
-	"encoding/csv"
-)
+import "database/sql"
 
 type Actress struct {
-	Year  string
-	Name  string
-	Movie string
+	Year    string
+	Actress string
+	Movie   string
 }
 
-func GetActresses() []Actress {
-	csvFile, err := os.Open("./academy_award_actresses.csv")
+func GetActresses(db *sql.DB) []Actress {
+	rows, err := db.Query("SELECT * FROM actresses")
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		panic(err)
 	}
-	defer csvFile.Close()
-	reader := csv.NewReader(csvFile)
-	reader.FieldsPerRecord = -1
-	csvData, err := reader.ReadAll()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+	var a []Actress
+	for rows.Next() {
+		var id int
+		var year string
+		var actress string
+		var movie string
+		err = rows.Scan(&id, &year, &actress, &movie)
+		if err != nil {
+			panic(err)
+		}
+		a = append(a, Actress{Year: year, Actress: actress, Movie: movie})
 	}
-	var actress Actress
-	var actresses []Actress
-	for _, a := range csvData[1:] {
-		actress.Year = a[0]
-		actress.Name = a[1]
-		actress.Movie = a[2]
-		actresses = append(actresses, actress)
-	}
-	return actresses
+	return a
 }

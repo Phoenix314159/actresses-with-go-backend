@@ -20,10 +20,10 @@ class Main extends Component {
     render() {
         const {data, pictures, paginate: {size}, open: {show, index}} = this.props
         if (show) {
-            const {Year, Name, Movie} = data[index]  //pull off properties of any index that is clicked
+            const {Year, Actress, Movie} = data[index]  //pull off properties of any index that is clicked
             return (
                 <PopUp year={Year}
-                       actress={Name}
+                       actress={Actress}
                        movie={Movie}
                        pictures={pictures}
                        index={index}
