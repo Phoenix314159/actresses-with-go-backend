@@ -3,16 +3,14 @@ package data
 import "database/sql"
 
 func GetPictures(db *sql.DB) []string {
-	rows, err := db.Query("SELECT * FROM pictures")
+	rows, err := db.Query("SELECT url FROM pictures")
 	if err != nil {
 		panic(err)
 	}
 	var p []string
 	for rows.Next() {
-		var id int
 		var url string
-		var name string
-		err = rows.Scan(&id, &url, &name)
+		err = rows.Scan(&url)
 		if err != nil {
 			panic(err)
 		}
