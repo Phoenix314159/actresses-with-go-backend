@@ -13,7 +13,7 @@ class Total extends Component {
 
   render () {
     const {main: {actressData, pictureData}, paginate: {subActressData, pageNum, size, subPictureData}} = this.props
-    if (!actressData || !pictureData) { // wait for data to come back then render component
+    if (!actressData || !pictureData) { // wait for controller to come back then render component
       return <h1 className="loading">Loading...</h1>
     }
     return <Main data={pageNum === 1 ? actressData : subActressData}

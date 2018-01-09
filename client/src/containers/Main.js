@@ -8,7 +8,7 @@ import PopUp from '../components/PopUp'
 
 class Main extends Component {
 
-    openPopUp = index => { // show data depending on row item clicked
+    openPopUp = index => { // show controller depending on row item clicked
         const {openPopUp, paginate: {pageNum}} = this.props
         openPopUp(true, index, pageNum)
     }

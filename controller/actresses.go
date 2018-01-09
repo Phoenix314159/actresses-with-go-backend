@@ -1,4 +1,4 @@
-package data
+package controller
 
 import "database/sql"
 
@@ -8,8 +8,10 @@ type Actress struct {
 	Movie   string
 }
 
+const actressQuery = "SELECT year, actress, movie FROM actresses"
+
 func GetActresses(db *sql.DB) []Actress {
-	rows, err := db.Query("SELECT year, actress, movie FROM actresses")
+	rows, err := db.Query(actressQuery)
 	if err != nil {
 		panic(err)
 	}

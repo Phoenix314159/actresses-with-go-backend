@@ -1,9 +1,11 @@
-package data
+package controller
 
 import "database/sql"
 
+const pictureQuery = "SELECT url FROM pictures"
+
 func GetPictures(db *sql.DB) []string {
-	rows, err := db.Query("SELECT url FROM pictures")
+	rows, err := db.Query(pictureQuery)
 	if err != nil {
 		panic(err)
 	}

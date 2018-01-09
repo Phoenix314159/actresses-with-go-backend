@@ -8,7 +8,7 @@ class PagBar extends Component {
 
   handlePageChange = pageNum => {
     const {changePage, main: {actressData, pictureData}, paginate: {size}} = this.props //actressData and pictureData are coming from getDataReducer
-    changePage(pageNum, actressData, size, pictureData) // dispatches action to change the page with data sending to the paginateReducer
+    changePage(pageNum, actressData, size, pictureData) // dispatches action to change the page with controller sending to the paginateReducer
   }
 
   render () {
