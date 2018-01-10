@@ -17,7 +17,7 @@
   },
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:3396"
+      "target": "http://localhost:3596"
     }
   },
   "devDependencies": {

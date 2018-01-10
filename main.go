@@ -10,12 +10,13 @@ import (
 )
 
 func main() {
+	port := ":3596"
 	db := models.InitDB()
 	r := mux.NewRouter().StrictSlash(true)
-	a := r.PathPrefix("/api/").Subrouter()
+	a := r.PathPrefix("/api").Subrouter()
 	a.HandleFunc("/get_actresses_data", routes.Actresses(db))
 	a.HandleFunc("/get_pictures", routes.Pictures(db))
-	log.Fatal(http.ListenAndServe(":3396", r))
+	log.Fatal(http.ListenAndServe(port, r))
 }
 
 
